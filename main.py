@@ -11,7 +11,7 @@ eve_echoes_market_url = 'https://api.eve-echoes-market.com/market-stats/stats.cs
 
 
 # Provide a URL that  gives a .csv file and the name of the table in your database to add it to.
-def pull_market_data(url, database_table_name):
+def download_csv(url, database_table_name):
 
     # Opens the database connection with the given database name. if the name is not found it will make one
     database_connection = sqlite3.connect('Your_Database_Here.db')
@@ -33,7 +33,7 @@ def pull_market_data(url, database_table_name):
     database_connection.close()
 
 
-pull_market_data(eve_echoes_market_url, 'EVE ECHOES MARKET')
+download_csv(eve_echoes_market_url, 'EVE ECHOES MARKET')
 
 
 
