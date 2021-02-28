@@ -42,6 +42,8 @@ def download_csv(url, database_table_name):
 
 download_csv(eve_echoes_market_url, 'EVE ECHOES MARKET')
 
+#TODO Comment all this stuff
+
 def get_item_data(database_connection, item_name, item_id):
     print(item_name)
 
