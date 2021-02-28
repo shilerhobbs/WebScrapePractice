@@ -9,6 +9,7 @@ import time
 import pandas as pd
 import requests
 
+
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64)'}
 
 # Any URL that gives a .cvs file should work with the below function
@@ -143,4 +144,12 @@ def get_csv_from_database(database_connection, table_name):
 
 
 
-update_all_items()
+last_run = 0
+
+while True:
+    if time.time() - last_run >= 86400:
+        update_all_items()
+        last_run = time.time()
+    
+    else:
+        time.sleep(1)
