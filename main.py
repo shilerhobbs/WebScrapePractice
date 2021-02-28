@@ -65,7 +65,7 @@ def update_all_items():
 
     start_time = time.time()
 
-    database_connection = sqlite3.connect('Your_Database_Here.db')
+    database_connection = sqlite3.connect('EE_Historical_Market.db')
 
     csv_text = requests.get(eve_echoes_market_url, headers=headers).text
 
@@ -87,6 +87,7 @@ def update_all_items():
         item_id = df.at[index, 'item_id']
         name_str = df.at[index, 'name'].replace(' ', '_').replace("'", '').replace('-', '_').replace(':', '')
         item_name = name_str.replace('.', '').replace('(', '_').replace(')', '')
+
         get_item_data(database_connection, item_name, item_id)
 
         try:
